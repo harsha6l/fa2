@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Harsha | Portfolio</title>
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .subtitle {
+            color: #2563eb;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Common Sections */
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        /* About */
+        .about-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        /* Skills */
+        .skills {
+            background: #eff6ff;
+        }
+
+        .skill-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: white;
+            border: 1px solid #dbeafe;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+            color: #2563eb;
+        }
+
+        .project-card p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* Education */
+        .education {
+            background: #eff6ff;
+        }
+
+        .education-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-left: 4px solid #2563eb;
+            border-radius: 6px;
+        }
+
+        .education-box p {
+            color: #64748b;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+            color: #64748b;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-box a {
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.06);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">HARsha.</a>
+
+            <button class="menu-btn" id="menuBtn"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="subtitle">WELCOME TO MY PORTFOLIO</div>
+
+                <h1>Hello, I'm <span>Harsha</span></h1>
+
+                <p>
+                    A student and aspiring web developer passionate about
+                    technology, creativity, and building useful digital
+                    experiences.
+                </p>
+
+                <a href="#projects" class="btn">View My Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <p class="section-description">
+                A little introduction about myself
+            </p>
+
+            <div class="about-box">
+                <p>
+                    I'm Harsha, a student interested in web development
+                    and modern technologies. I enjoy learning new skills,
+                    solving problems, and turning ideas into practical
+                    projects. My goal is to improve my technical knowledge
+                    and build a successful career in the technology field.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+
+            <p class="section-description">
+                Technologies and tools I am learning
+            </p>
+
+            <div class="skill-list">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">C Programming</div>
+                <div class="skill">Git & GitHub</div>
+                <div class="skill">Responsive Design</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+
+            <p class="section-description">
+                A selection of my learning projects
+            </p>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Personal Portfolio</h3>
+                    <p>
+                        A responsive personal website showcasing my
+                        introduction, skills, projects, and contact details.
+                    </p>
+                    <a href="#home">Explore Portfolio →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Business Website</h3>
+                    <p>
+                        A website concept designed to present business
+                        information, products, and services online.
+                    </p>
+                    <a href="#contact">Know More →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Web Development</h3>
+                    <p>
+                        Practice projects created to improve my knowledge
+                        of HTML, CSS, JavaScript, and responsive layouts.
+                    </p>
+                    <a href="#skills">View Skills →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <p class="section-description">
+                My academic background
+            </p>
+
+            <div class="education-box">
+                <h3>Undergraduate Student</h3>
+                <p>Course: Add Your Course Name</p>
+                <p>Institution: Add Your College Name</p>
+                <p>Year: Add Your Current Academic Year</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <p class="section-description">
+                Feel free to connect with me
+            </p>
+
+            <div class="contact-box">
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:yourname@example.com">
+                        yourname@example.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <a href="tel:+910000000000">
+                        +91 XXXXX XXXXX
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Instagram:</strong>
+                    <a href="https://www.instagram.com/"
+                       target="_blank" rel="noopener noreferrer">
+                        Visit My Instagram
+                    </a>
+                </p>
+
+                <p>
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/"
+                       target="_blank" rel="noopener noreferrer">
+                        Visit My GitHub
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; <span id="year"></span> Harsha.
+            All rights reserved.
+        </p>
+        <p>Designed with HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+            menuBtn.setAttribute("aria-expanded", isOpen);
+        });
+
+        // Close Menu After Clicking a Link
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuBtn.textContent = "☰";
+                menuBtn.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // Automatically Update Copyright Year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
+
